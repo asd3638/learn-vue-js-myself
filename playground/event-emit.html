@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{ num }}</p>
+        <app-header v-on:pass="logtext"></app-header>
+        <app-content v-on:add="addData"></app-header>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        // key value 형태임.
+        var appHeader = {
+            template: '<button v-on:click="passEvent">Click Me</button>',
+            methods: {
+                //passEvent 가 발생하면 이 함수를 실행시키는데
+                //emit으로 pass를 보낸다.
+                passEvent: function() {
+                    this.$emit('pass')
+                }
+            }
+        }
+        var appContent = {
+                //버튼을 클릭하면 addNumber을 실행하겠다는게 이 코드의 의미
+                template: '<button v-on:click="addNumber">Add</button>',
+                methods: {
+                    //passEvent 가 발생하면 이 함수를 실행시키는데
+                    //emit으로 pass를 보낸다.
+                    //하위 컴포넌트에서 상위 컴포넌트로 이벤트를 보낸다.
+                    addNumber: function() {
+                        this.$emit('add')
+                    }
+                }
+            }
+        new Vue({
+            el: '#app',
+            components: {
+                'app-header': appHeader,
+                'app-content': appContent,
+            },
+            data: {
+                num: 10
+            },
+            methods: {
+                logtext: function() {
+                    console.log("하위 컴포넌트에서 이벤트 발생");
+                },
+                addData: function() {
+                    this.num = this.num + 1;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

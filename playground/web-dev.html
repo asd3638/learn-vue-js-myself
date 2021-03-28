@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- html은 화면에 나타나는 dom의 정보를 넣는 거고 script는 그런 htmld을 조작하는 것이다 -->
+    <div id="app">
+        <!-- Hello World!! -->
+    </div>
+    <script>
+        var div = document.querySelector('#app');
+        var str = 'hello world';
+        div.innerHTML = str;
+
+        str = 'hello world!!!';    
+        // 대부분 변수에 값을 넣어둘텐데 이게 변수를 변경한다고 값이 바로 바로 변하는게 아니다.
+        // 그래서 다시 아래 코드를 작성해
+        // 이 과정을 생략할 수 있게 해주는게 vue.js
+        div.innerHTML = str;
+
+        
+    </script>
+</body>
+</html>
