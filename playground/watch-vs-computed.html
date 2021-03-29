@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{ num }}</p>
+        <p>{{ doubleNum }}</p>
+        <button v-on:click='addNum'>Click Me</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                num: 10,
+            },
+            //간단한 연산
+            //주로 computed 쓰는 것을 vue는 더 권장한다.
+            computed: {
+                doubleNum: function() {
+                    return this.num * 2;
+                }
+            },
+            //무거운 데이터 요청
+            watch: {
+                //watch는 변화를 감지하는 것이기 때문에
+                //원래 기존 값과 변경된 값 두개를 인자로 받을 수 있다.
+                num: function(newValue, OldValue) {
+                    this.fetchUserByNumber(newValue);
+                }
+            },
+            methods: {
+                fetchUserByNumber: function(num) {
+                    console.log(num);
+                },
+                addNum: function() {
+                    this.num = this.num + 1;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

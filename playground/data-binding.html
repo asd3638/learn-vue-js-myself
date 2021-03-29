@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 원래 id를 바로 지정했었는데 div태그처럼 -->
+        <!-- v- 디렉티브를 통해서 vue에서 관리하는 데이터값을 통해 id를 지정할 수 있다. -->
+        <p v-bind:id='uuid' v-bind:class='name'>{{ num }}</p>
+        <p>{{ doubleNum }}</p>
+        <!-- if는 false면 아예 돔 자체가 사라지고 -->
+        <div v-if='loading'>
+            Loading...</div>
+        <div v-else>
+            test user has been logged in
+        </div>
+        <!-- if는 false면 아예 돔 자체가 사라지고 show는 css로 그냥 안보이게만 해둔다.-->
+        <div v-show='loading'>
+            Loading...
+        </div>
+        <input v-model="message" placeholder="edit me">
+        <p>Message is: {{ message }}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                num: 10,
+                uuid: 'abc1234',
+                name: 'text-blue',
+                loading: true,
+                message: '',
+            },
+            computed: {
+                //doubleNum은 computed속성이고 num이 바뀌면 알아서 자동으로 바뀐다.
+                doubleNum: function() {
+                    return this.num * 2;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

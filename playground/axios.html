@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Axios</title>
+</head>
+<body>
+  <div id="app">
+    <button v-on:click="getData">get user</button>
+    <div>
+      {{ users }}
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      //값을 담아준다.
+      data: {
+        users: []
+      },
+      methods: {
+        getData: function() { 
+          var vm = this;
+          axios.get('https://jsonplaceholder.typicode.com/users/')
+          //성공하면 then, 실패하면 catch로 넘어간다. (promise 개념)
+            .then(function(response) {
+              console.log(response.data);
+              vm.users = response.data;
+              //이거 왜 this.users로 쓰면 안될까?
+              //이게 var vm = this; 에서의 this는 Vue를 가리키는게 맞는데
+              //비동기 then 안에 this는 Vue를 가리키는게 아니다.
+            })
+            .catch(function(error) {
+              console.log(error);
+            });
+        }
+      }
+    })
+  </script>
+</body>
+</html>

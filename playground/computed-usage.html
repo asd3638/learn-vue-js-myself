@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .warning {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- warning 이 클래스 명인데 isError에 따라 다름. -->
+        <p v-bind:class="isErrorText">Hello</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            //여기 isError에 따라 class명을 주기도 하고 안 주기도 하고 싶음.
+            data: {
+                isError: false,
+            },
+            computed: {
+                isErrorText: function() {
+                    return this.isError ? 'warning' : null;
+                }
+            }
+
+        });
+    </script>
+</body>
+</html>
