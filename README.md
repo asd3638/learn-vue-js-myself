@@ -1,4 +1,4 @@
-[Vue.js 시작하기 - Age of Vue.js - 인프런 | 강의](https://www.inflearn.com/course/Age-of-Vuejs/dashboard)
+#vue 공부
 
 ### 내용
 
