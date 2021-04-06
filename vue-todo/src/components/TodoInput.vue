@@ -30,10 +30,11 @@ export default {
   methods: {
     addTodo() {
       if (this.newTodoItem !== "") {
-        this.$emit("addTodoItem", this.newTodoItem);
+        //this.$emit("addTodoItem", this.newTodoItem);
         //이렇게 쓰면 addTodoItem이라는 이벤트를 발생시켰음을 의미하고
         //그걸 상위 컴포넌트와 v-on:(하위 컴포넌트에서 발생시킨 이벤트) 로 연결할 수 있다.
         //그럼 <v-on:(하위 컴포넌트에서 발생시킨 이벤트)="(상위컴포넌트에서 발생할 이벤트)"> 로 상위 컴포넌트의 특정 메소드를 호출해서 연결할 수 있다.
+        this.$store.commit("addItem", this.newTodoItem);
         this.clearInput();
       } else {
         this.showModal = !this.showModal;

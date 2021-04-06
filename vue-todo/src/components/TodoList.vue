@@ -1,39 +1,46 @@
 <template>
-  <div>
+  <section>
     <transition-group name="list" tag="ul">
       <li
         v-for="(todoItem, index) in this.$store.state.todoItems"
-        v-bind:key="todoItem.item"
         class="shadow"
+        v-bind:key="todoItem.item"
       >
-        <span
-          class="checkContainer"
-          v-on:click="toggleComplete(todoItem, index)"
+        <i
+          class="checkBtn fas fa-check"
           v-bind:class="{ checkBtnCompleted: todoItem.completed }"
-        >
-          <i class="fas fa-check"></i>
-        </span>
+          v-on:click="toggleComplete(todoItem, index)"
+        ></i>
         <span v-bind:class="{ textCompleted: todoItem.completed }">{{
           todoItem.item
         }}</span>
         <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
-          <i class="fas fa-trash-alt"></i>
+          <i class="removeBtn fas fa-trash-alt"></i>
         </span>
       </li>
     </transition-group>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
   //원래 list 내에서 관리되던 todoItems를 root에서 선언하고 props로 내려보냈음.
-  props: ["propsdata"],
   methods: {
     removeTodo(todoItem, index) {
-      this.$emit("removeTodoItem", todoItem, index);
+      const payload = {
+        todoItem,
+        index,
+      };
+      //this.$emit("removeTodoItem", todoItem, index);
+      this.$store.commit("removeOneItem", payload);
     },
     toggleComplete(todoItem, index) {
-      this.$emit("toggleComplete", todoItem, index);
+      const payload = {
+        todoItem,
+        index,
+      };
+      //this.$emit("toggleComplete", todoItem, index);
+      this.$store.commit("toggleComplete", payload);
     },
   },
 };
