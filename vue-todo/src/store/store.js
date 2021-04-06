@@ -22,21 +22,26 @@ export const store = new Vuex.Store({
         //headerText: "TODO it!"
         todoItems: storage.fetch()
     },
+    getters: {
+        storedTodoItems(state) {
+            return state.todoItems;
+        }
+    },
     mutations: {
         addItem(state, todoItem) {
             var obj = { completed: false, item: todoItem };
             localStorage.setItem(todoItem, JSON.stringify(obj));
             state.todoItems.push(obj);
         },
-        removeOneItem(state, payload) {
-            localStorage.removeItem(payload.todoItem.item);
-            state.todoItems.splice(payload.index, 1);
+        removeOneItem(state, { todoItem, index }) {
+            localStorage.removeItem(todoItem.item);
+            state.todoItems.splice(index, 1);
         },
-        toggleComplete(state, payload) {
-            state.todoItems[payload.index].completed = !state.todoItems[payload.index].completed;
+        toggleComplete(state, { todoItem, index }) {
+            state.todoItems[index].completed = !state.todoItems[index].completed;
             //localstorage는 update하는 api는 없기 때문에 지웠다가 다시 저장하는 방식 사용.
-            localStorage.removeItem(payload.todoItem.item);
-            localStorage.setItem(payload.todoItem.item, JSON.stringify(payload.todoItem));
+            localStorage.removeItem(todoItem.item);
+            localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
         },
         clearAll(state) {
             state.todoItems = [];
