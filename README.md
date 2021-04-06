@@ -10,6 +10,8 @@
 4. http 통신 : axios
 5. data binding & view directive
 6. vue-cli
+7. ES5 / ES6
+8. Vuex (state, getters, mutations, actions, modules)
 
 ### vue.js 공식 문서들
 
@@ -332,7 +334,7 @@ Vue.js 중고급 개발자로 성장하기 위한 필수 관문 (앱/웹 이 커
 **Flux 란?**
 
 MVC  패턴의 복잡한 데이터 흐름 문제를 해결하는 개발 패턴 (UniDirectional data flow  - 단 방향이라는게 핵심)
-<img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0888109f-ec73-463b-be62-3966d0a94f8f/13.png" width="450px" height="300px" title="px(픽셀) 크기 설정" alt="RubberDuck"></img><br/>
+![13](https://user-images.githubusercontent.com/59568523/113684846-96291100-9700-11eb-9d1e-d39d1a52c8ad.PNG)
 
 
 ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f6bec08c-8ffc-49de-9e72-0c5fec261be9/10.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f6bec08c-8ffc-49de-9e72-0c5fec261be9/10.png)
