@@ -26,50 +26,7 @@ export default {
     TodoList,
     TodoFooter,
   },
-
-  created() {
-    if (localStorage.length !== 0) {
-      for (let i = 0; i < localStorage.length; i++) {
-        if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
-          this.todoItems.push(
-            JSON.parse(localStorage.getItem(localStorage.key(i)))
-          );
-        }
-      }
-    }
-  },
-  data() {
-    return {
-      todoItems: [],
-    };
-  },
-  methods: {
-    //이런 속성 메소드를 쓰면 간결하게 줄일 수 있다.
-    // addOneItem: function(newTodoItem) {
-    //   const obj = { completed: false, item: newTodoItem };
-    //   localStorage.setItem(newTodoItem, JSON.stringify(obj));
-    //   this.todoItems.push(obj);
-    // },
-    addOneItem(newTodoItem) {
-      const obj = { completed: false, item: newTodoItem };
-      localStorage.setItem(newTodoItem, JSON.stringify(obj));
-      this.todoItems.push(obj);
-    },
-    removeOneItem(todoItem, index) {
-      localStorage.removeItem(todoItem.item);
-      this.todoItems.splice(index, 1);
-    },
-    toggleComplete(todoItem, index) {
-      this.todoItems[index].completed = !this.todoItems[index].completed;
-      //localstorage는 update하는 api는 없기 때문에 지웠다가 다시 저장하는 방식 사용.
-      localStorage.removeItem(todoItem.item);
-      localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
-    },
-    clearItems() {
-      this.todoItems = [];
-      localStorage.clear();
-    },
-  },
+  methods: {},
 };
 </script>
 
