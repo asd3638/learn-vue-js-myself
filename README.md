@@ -1,5 +1,7 @@
 # vue 공부
 
+![vue js_todoList](https://user-images.githubusercontent.com/59568523/113684356-1b5ff600-9700-11eb-8238-c04205c3c057.gif)
+
 ### 내용
 
 1. Reactivity
