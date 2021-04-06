@@ -1,8 +1,10 @@
-# vue 공부
+# vue.js 개념 공부 & todoList clone coding
 
+
+### todoList 결과물
 ![vue js_todoList](https://user-images.githubusercontent.com/59568523/113684356-1b5ff600-9700-11eb-8238-c04205c3c057.gif)
 
-### 내용
+### 학습 목차
 
 1. Reactivity
 2. Instance
@@ -23,7 +25,6 @@
 
 [What is Vuex? | Vuex](https://vuex.vuejs.org/)
 
-### todoList 만들기
 
 컴포넌트간의 데이터 처리를 용이하게 하기 위해서 Container역할을 하는 상위 컴포넌트에서 데이터를 하나 만들고 props와 emit을 통해 하위 컴포넌트들이 데이터를 상위 컴포넌트와 주고 받고 데이터를 동기화해서 처리할 수 있게 하는 방식을 쓴다.
 
