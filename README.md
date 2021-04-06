@@ -337,25 +337,30 @@ MVC  패턴의 복잡한 데이터 흐름 문제를 해결하는 개발 패턴 (
 ![13](https://user-images.githubusercontent.com/59568523/113684846-96291100-9700-11eb-9d1e-d39d1a52c8ad.PNG)
 
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f6bec08c-8ffc-49de-9e72-0c5fec261be9/10.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f6bec08c-8ffc-49de-9e72-0c5fec261be9/10.png)
+![10](https://user-images.githubusercontent.com/59568523/113684910-a93be100-9700-11eb-858a-98c5ba9b34f2.PNG)
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/810ce7ea-6e6f-48dd-9d18-6892c9d075ed/11.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/810ce7ea-6e6f-48dd-9d18-6892c9d075ed/11.png)
+
+![11](https://user-images.githubusercontent.com/59568523/113684973-bb1d8400-9700-11eb-9867-85a1df6555ac.PNG)
+
 
 flux랑은 다르게 model과 view의 관계가 양방향임.
 
 이러면
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/36d9ec7a-218e-4dd9-b25c-90fd98f6a388/12.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/36d9ec7a-218e-4dd9-b25c-90fd98f6a388/12.png)
+![12](https://user-images.githubusercontent.com/59568523/113685016-c7a1dc80-9700-11eb-9651-b9c5071d06b2.PNG)
+
 
 데이터의 흐름을 추적하기가 매우 힘들다.
 
 예를 들어 페이스북을 하는데 내가 채팅을 어떤 view에서 읽었음. 그럼 그게 model에 연관된 다른 view들에도 모두 적용이 되어야 하는데 해당 model이 어떤 뷰와 연관되어 있는지 양방향 연관관계를 형성하고 있어서 연관 관계를 추척해서 반영하기가 쉽지 않음. 그래서 양방향 연결 관계보다는 단방향 연결관계를 생성해서 하자는 flux패턴이 나오게 되었다.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/41845107-f7e8-464c-8c7d-41ca2b36e663/14.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/41845107-f7e8-464c-8c7d-41ca2b36e663/14.png)
+![14](https://user-images.githubusercontent.com/59568523/113685070-d5576200-9700-11eb-94f5-6dc32749e288.PNG)
+
 
 컴포넌트 개수 많아지면 props랑 emit이 엄청 번거로워 진다. 그리고 $emit $on 이러면 어디서 온 이벤트인지 알기가 어려움 컴포넌트가 데이터 전달이 명시적이지 않음.  → 이걸 vuex가 해결해준다.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/55825f33-1571-422b-940f-bfda95276c19/15.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/55825f33-1571-422b-940f-bfda95276c19/15.png)
+![15](https://user-images.githubusercontent.com/59568523/113685132-e3a57e00-9700-11eb-96bb-cc2120966f49.PNG)
+
 
 ### vuex 구조
 
@@ -536,7 +541,8 @@ mutations 와 actions를 구분하는 이유는 동기와 비동기 로직들을
 
 ### Helper
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1cf76bac-143d-472d-80e3-3631004411cb/16.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1cf76bac-143d-472d-80e3-3631004411cb/16.png)
+![16](https://user-images.githubusercontent.com/59568523/113685202-f4ee8a80-9700-11eb-9263-b18e16b10255.PNG)
+
 
 vuex에서 사용되는 state, getters, mutations, actions를 좀 더 쉽게 사용하고 코딩할 수 있도록 말그대로 도와주는 것
 
