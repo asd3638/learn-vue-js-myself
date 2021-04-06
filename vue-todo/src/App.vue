@@ -1,13 +1,9 @@
 <template>
   <dir id="app">
     <todo-header></todo-header>
-    <todo-input v-on:addTodoItem="addOneItem"></todo-input>
-    <todo-list
-      v-bind:propsdata="todoItems"
-      v-on:removeTodoItem="removeOneItem"
-      v-on:toggleComplete="toggleComplete"
-    ></todo-list>
-    <todo-footer v-on:clearItems="clearItems"></todo-footer>
+    <todo-input></todo-input>
+    <todo-list></todo-list>
+    <todo-footer></todo-footer>
   </dir>
 </template>
 
